@@ -35,7 +35,7 @@ enum {
 int telfd;
 
 static void
-netrproc(void *)
+netrproc(void *unused)
 {
 	static uchar buf[512];
 	int n, c;
@@ -52,7 +52,7 @@ netrproc(void *)
 }
 
 static void
-netwproc(void *)
+netwproc(void *unused)
 {
 	static uchar buf[512];
 	int c;
@@ -70,7 +70,7 @@ netwproc(void *)
 }
 
 static void
-telnetrthread(void *)
+telnetrthread(void *unused)
 {
 	int c;
 
@@ -116,7 +116,7 @@ cmd(int a, int b)
 }
 
 static void
-telnetwthread(void *)
+telnetwthread(void *unused)
 {
 	int c;
 
