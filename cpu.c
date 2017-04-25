@@ -442,7 +442,7 @@ dtime(u16int op, u8int s)
 }
 
 static void
-stime(int a, u8int s)
+_stime(int a, u8int s)
 {
 	if(a)
 		tim += s == 2 ? 6 : 4;
@@ -742,13 +742,13 @@ step(void)
 				rS &= ~FLAGZ;
 			}
 			wmode(a, s, w);
-			stime(a < 0, s);
+			_stime(a < 0, s);
 			break;
 		case 2: /* CLR */
 			a = amode(op >> 3, op, s);
 			wmode(a, s, 0);
 			nz(0, 0);
-			stime(a < 0, s);
+			_stime(a < 0, s);
 			break;
 		case 4:
 			if(s == 3){ /* MOVE to CCR */
@@ -761,7 +761,7 @@ step(void)
 			nz(v, s);
 			rS = rS & ~FLAGX | ~rS << 2 & FLAGX | ~rS >> 2 & FLAGC;
 			wmode(a, s, v);
-			stime(a < 0, s);
+			_stime(a < 0, s);
 			break;
 		case 6:
 			if(s == 3){ /* MOVE to SR */
@@ -781,7 +781,7 @@ step(void)
 			v = ~rmode(a, s);
 			nz(v, s);
 			wmode(a, s, v);
-			stime(a < 0, s);
+			_stime(a < 0, s);
 			break;
 		case 8:
 			n = op & 7;

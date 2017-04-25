@@ -99,7 +99,7 @@ redraw(void)
 static uchar
 keymap[] = {
 	[Kup-KF] 0xf1,
-	[Kdown-KF] 0xf2,
+	[Kdown] 0xf2,
 	[Kleft-KF] 0xf3,
 	[Kright-KF] 0xf4,
 	[1] 0xf6, /* PF1 */
@@ -112,7 +112,7 @@ keymap[] = {
 };
 
 static void
-keyproc(void *)
+keyproc(void *unused)
 {
 	int fd, cfd, ch, rc;
 	static char buf[256];
