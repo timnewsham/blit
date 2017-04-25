@@ -1,6 +1,5 @@
-</$objtype/mkfile
+<$PLAN9/src/mkhdr
 
-BIN=/$objtype/bin/games
 TARG=blit
 HFILES=dat.h fns.h
 OFILES=\
@@ -9,4 +8,4 @@ OFILES=\
 	mem.$O\
 	telnet.$O\
 
-</sys/src/cmd/mkone
+<$PLAN9/src/mkone
