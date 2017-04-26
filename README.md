@@ -8,8 +8,15 @@ To build, install plan9port from https://github.com/9fans/plan9port (https://swt
 ```sh
     $ mk
     $ sudo mk install
-    $ blit -t "tcp!localhost!8888"
+    $ blit -t 'tcp!localhost!8888'
 ```
 
-For V8, see https://github.com/timnewsham/myv8.
+When connected, log in and run `/usr/blit/bin/mux`.
+To quit, hit the END key.
+
+Fro V8, grab an image from
+http://9legacy.org/download/unix/v8-simh.tar.bz2
+or
+see https://github.com/timnewsham/myv8 (XXX todo: myv8
+doesnt yet include blit bins).
 
