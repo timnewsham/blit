@@ -114,36 +114,29 @@ keymap[] = {
 static void
 keyproc(void *unused)
 {
-	int fd, cfd, ch, rc;
-	static char buf[256];
-	char *p;
+	Keyboardctl *kbdctl;
+	int ch, rc;
 	Rune r;
 
-	fd = open("/dev/cons", OREAD);
-	if(fd < 0)
-		sysfatal("open: %r");
-	cfd = open("/dev/consctl", OWRITE);
-	if(cfd < 0)
-		sysfatal("open: %r");
-	fprint(cfd, "rawon");
+	if((kbdctl = initkeyboard(nil)) == nil) 
+		sysfatal("open keyboard: %r");
 	for(;;){
-		rc = read(fd, buf, sizeof(buf) - 1);
+		rc = recv(kbdctl->c, &r);
+fprint(2, "keyboard %d\n", r);
 		if(rc <= 0)
-			sysfatal("read /dev/cons: %r");
-		for(p = buf; p < buf + rc && (p += chartorune(&r, p)); ){
-			if(r == Kend){
-				close(fd);
-				threadexitsall(nil);
-			}
-			ch = r;
-			if(ch == '\n') ch = '\r';
-			else if(ch >= KF){
-				if(ch >= KF + nelem(keymap)) continue;
-				ch = keymap[ch - KF];
-				if(ch == 0) continue;
-			}else if(ch >= 0x80) continue;
-			send(keych, &ch);
+			sysfatal("read keyboard: %r");
+		if(r == Kend){
+			closekeyboard(kbdctl);
+			threadexitsall(nil);
 		}
+		ch = r;
+		if(ch == '\n') ch = '\r';
+		else if(ch >= KF){
+			if(ch >= KF + nelem(keymap)) continue;
+			ch = keymap[ch - KF];
+			if(ch == 0) continue;
+		}else if(ch >= 0x80) continue;
+		send(keych, &ch);
 	}
 }
 

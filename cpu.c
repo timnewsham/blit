@@ -508,7 +508,6 @@ step(void)
 	vlong a;
 	int s;
 	int n, m, d;
-	static int cnt;
 
 	if(0 && pc == 0x4118c){
 		trace++;
