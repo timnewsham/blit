@@ -50,7 +50,7 @@ redraw(void)
 	Mouse m;
 	Rectangle r;
 		
-	if(nbrecvul(mc->resizec) > 0){
+	if(nbrecv(mc->resizec, 0) == 1){
 		if(getwindow(display, Refnone) < 0)
 			sysfatal("resize failed: %r");
 		screeninit();
@@ -122,7 +122,6 @@ keyproc(void *unused)
 		sysfatal("open keyboard: %r");
 	for(;;){
 		rc = recv(kbdctl->c, &r);
-fprint(2, "keyboard %d\n", r);
 		if(rc <= 0)
 			sysfatal("read keyboard: %r");
 		if(r == Kend){
