@@ -68,10 +68,6 @@ meminit(void)
 		if((i & 1) == 0) p = q;
 		Bterm(bp);
 	}
-    /* I dont know what this was for, but it spews garbage
-     * out telnet to the vax, causing it to hang.
-     */
-	//write(3, rom, sizeof(rom));
 }
 
 void
