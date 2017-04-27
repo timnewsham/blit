@@ -107,7 +107,7 @@ redraw(void)
 static uchar
 keymap[] = {
 	[Kup-KF] 0xf1,
-	[Kdown] 0xf2,
+	// [Kdown] 0xf2, 
 	[Kleft-KF] 0xf3,
 	[Kright-KF] 0xf4,
 	[1] 0xf6, /* PF1 */
@@ -138,6 +138,7 @@ keyproc(void *unused)
 		}
 		ch = r;
 		if(ch == '\n') ch = '\r';
+		if(ch == Kdown) ch = 0xf2;
 		else if(ch >= KF){
 			if(ch >= KF + nelem(keymap)) continue;
 			ch = keymap[ch - KF];
