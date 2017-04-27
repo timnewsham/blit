@@ -1,6 +1,6 @@
-
-Blit terminal for Plan9Port.  The code is originally from 9front, http://code.9front.org/hg/plan9front/file/3595611ca650/sys/src/games/blit.
-I only made changes to get it to build in plan9port.
+Blit terminal for Plan9Port.  This is a port of code by aiju, 
+originally from 9front, http://code.9front.org/hg/plan9front/file/3595611ca650/sys/src/games/blit.
+I only made changes to get it to run properly in plan9port.
 
 To build, install plan9port from https://github.com/9fans/plan9port (https://swtch.com/plan9port/) and execute the following
 (assuming you have V8 listening on port 8888):
