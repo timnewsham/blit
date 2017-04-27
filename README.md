@@ -18,3 +18,4 @@ For V8, grab an image from
 http://9legacy.org/download/unix/v8-simh.tar.bz2
 or see https://github.com/timnewsham/myv8.
 
+![Screenshot](screenshot.png?raw=true "Screenshot")
