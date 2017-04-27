@@ -19,6 +19,9 @@ http://9legacy.org/download/unix/v8-simh.tar.bz2
 or see https://github.com/timnewsham/myv8.
 
 For more information about the blit terminal, 
-see http://doc.cat-v.org/bell_labs/blit/blit.pdf
+see http://doc.cat-v.org/bell_labs/blit/blit.pdf,
+or watch a short promotional video https://www.youtube.com/watch?v=Pr1XXvSaVUQ .
 
 ![Screenshot](screenshot.png?raw=true "Screenshot")
+
+
